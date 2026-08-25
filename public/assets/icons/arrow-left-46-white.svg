@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="lucide/circle-arrow-left">
+<g id="Vector">
+<path d="M21 44C32.0457 44 41 35.0457 41 24C41 12.9543 32.0457 4 21 4C9.9543 4 1 12.9543 1 24C1 35.0457 9.9543 44 21 44Z" fill="#1C4499"/>
+<path d="M21 32L13 24L21 16M13 24H29M41 24C41 35.0457 32.0457 44 21 44C9.9543 44 1 35.0457 1 24C1 12.9543 9.9543 4 21 4C32.0457 4 41 12.9543 41 24Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</svg>

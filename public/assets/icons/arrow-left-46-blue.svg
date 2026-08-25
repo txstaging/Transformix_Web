@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="lucide/circle-arrow-left" clip-path="url(#clip0_0_109)">
+<g id="Vector">
+<path d="M20 43C31.0457 43 40 34.0457 40 23C40 11.9543 31.0457 3 20 3C8.9543 3 0 11.9543 0 23C0 34.0457 8.9543 43 20 43Z" fill="#1C4499"/>
+<path d="M20 31L12 23L20 15M12 23H28M40 23C40 34.0457 31.0457 43 20 43C8.9543 43 0 34.0457 0 23C0 11.9543 8.9543 3 20 3C31.0457 3 40 11.9543 40 23Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_109">
+<rect width="46" height="46" fill="white"/>
+</clipPath>
+</defs>
+</svg>
