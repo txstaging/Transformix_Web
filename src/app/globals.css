@@ -33,6 +33,11 @@
   zoom: var(--page-zoom, 1);
 }
 
+.design-canvas-1440 {
+  width: var(--canvas-width-1440, 100%);
+  zoom: var(--page-zoom-1440, 1);
+}
+
 html {
   -webkit-text-size-adjust: 100%;
 }

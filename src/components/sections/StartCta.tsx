@@ -19,7 +19,7 @@ export default function StartCta() {
         />
       </div>
 
-      <div className="relative mx-auto flex w-full max-w-[904px] flex-col items-center gap-[28px] lg:absolute lg:left-1/2 lg:top-[88px] lg:w-[904px] lg:-translate-x-1/2 lg:gap-[40px]">
+      <div className="relative mx-auto flex w-full max-w-[904px] flex-col items-center gap-[36px] lg:absolute lg:left-1/2 lg:top-[88px] lg:w-[904px] lg:-translate-x-1/2 lg:gap-[64px]">
         <Reveal className="flex w-full flex-col items-center gap-[12px] text-center lg:h-[184px] lg:gap-[16px]">
           <h2 className="w-full text-[24px] font-bold leading-snug text-primary sm:text-[28px] lg:h-[70px] lg:text-[32px] lg:leading-normal">
             لا تدع تفاصيل البداية توقف مشروعك

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import OutlineButton from "@/components/ui/OutlineButton";
+import PrimaryButton from "@/components/ui/PrimaryButton";
 import Reveal from "@/components/ui/Reveal";
 
 export default function BigCta() {
@@ -18,7 +18,7 @@ export default function BigCta() {
               </p>
             </Reveal>
             <Reveal delay={120} className="lg:-mt-[52px]">
-              <OutlineButton href="#contact">استكشف المزيد</OutlineButton>
+              <PrimaryButton href="#contact">استكشف المزيد</PrimaryButton>
             </Reveal>
           </div>
         </div>

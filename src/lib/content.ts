@@ -1,42 +1,55 @@
 export const NAV_LINKS = [
   { label: "الرئيسية", href: "#", active: true, hasChevron: false },
-  { label: "الخدمات", href: "#services", active: false, hasChevron: true },
-  { label: "أعمالنا", href: "#work", active: false, hasChevron: false },
+  // { label: "الخدمات", href: "#services", active: false, hasChevron: true },
+  { label: "أعمالنا", href: "/works", active: false, hasChevron: false },
   { label: "تواصل معنا", href: "#contact", active: false, hasChevron: false },
 ];
 
-export const HERO_SLIDES = [
-  {
-    title: "نطوّر مواقع تخدم أعمالك بوضوح وكفاءة",
-    body: "نجمع بين بناء العلامة، تصميم المواقع، تجربة المستخدم وصناعة المحتوى لنصنع حضورًا متكاملًا يعبر عنك ويقربك من جمهورك.",
-    align: "center" as const,
-  },
-  {
-    title: "مواقع وتجارب تجعل كل خطوة أسهل",
-    body: "نصمم مواقع وواجهات تجمع بين الشكل الاحترافي، سهولة الاستخدام وتحقيق أهداف المشروع.",
-    align: "right" as const,
-  },
-  {
-    title: "هوية واضحة تجعل علامتك أكثر حضورًا",
-    body: "نبني شخصية بصرية متكاملة تساعد جمهورك على التعرف على علامتك وتذكرها بسهولة.",
-    align: "right" as const,
-  },
-  {
-    title: "بناء العلامة",
-    body: "نبني شخصية بصرية متكاملة تساعد جمهورك على التعرف على علامتك وتذكرها بسهولة.",
-    align: "right" as const,
-  },
-];
+export const HERO_CONTENT = {
+  title: "نبني حلولًا رقمية تساعد أعمالك على النمو",
+  body: "نجمع بين البيانات والذكاء الاصطناعي، التصميم، تطوير التجارب الرقمية وأنظمة الأعمال لنحوّل تحدياتك إلى حلول عملية تساعدك على العمل بكفاءة أكبر والنمو بشكل أوضح.",
+  cta: { label: "ابدء مشروعك معنا", href: "#contact" },
+};
 
 export const BRAND_LOGOS = [
   { src: "/assets/brands/barq.png", alt: "Barq", width: 66, height: 66 },
-  { src: "/assets/brands/thermo.png", alt: "Thermo Integrated", width: 70, height: 70 },
-  { src: "/assets/brands/tour-guides.png", alt: "Tour Guides Cooperative", width: 139, height: 78 },
+  {
+    src: "/assets/brands/thermo.png",
+    alt: "Thermo Integrated",
+    width: 70,
+    height: 70,
+  },
+  {
+    src: "/assets/brands/tour-guides.png",
+    alt: "Tour Guides Cooperative",
+    width: 139,
+    height: 78,
+  },
   { src: "/assets/brands/brand-48.png", alt: "IB DL", width: 150, height: 64 },
-  { src: "/assets/brands/brand-45.png", alt: "شعار عميل", width: 120, height: 43 },
-  { src: "/assets/brands/brand-70.png", alt: "شعار عميل", width: 85, height: 74 },
-  { src: "/assets/brands/ibdl-wide.png", alt: "شعار عميل", width: 179, height: 55 },
-  { src: "/assets/brands/arab-league.png", alt: "جامعة الدول العربية", width: 201, height: 76 },
+  {
+    src: "/assets/brands/brand-45.png",
+    alt: "شعار عميل",
+    width: 120,
+    height: 43,
+  },
+  {
+    src: "/assets/brands/brand-70.png",
+    alt: "شعار عميل",
+    width: 85,
+    height: 74,
+  },
+  {
+    src: "/assets/brands/ibdl-wide.png",
+    alt: "شعار عميل",
+    width: 179,
+    height: 55,
+  },
+  // {
+  //   src: "/assets/brands/arab-league.png",
+  //   alt: "جامعة الدول العربية",
+  //   width: 201,
+  //   height: 76,
+  // },
 ];
 
 export type ServiceCard = {
@@ -102,7 +115,12 @@ export const SERVICES: ServiceCard[] = [
     imageHeight: 160,
     imageLeft: 88.2,
     imageTop: 152.7,
-    crop: { width: "157.97%", height: "140.74%", left: "-31.25%", top: "-19.18%" },
+    crop: {
+      width: "157.97%",
+      height: "140.74%",
+      left: "-31.25%",
+      top: "-19.18%",
+    },
   },
   {
     title: "مواقع محسّنة لمحركات البحث",
@@ -113,7 +131,12 @@ export const SERVICES: ServiceCard[] = [
     imageHeight: 165,
     imageLeft: 104.2,
     imageTop: 138.7,
-    crop: { width: "130.33%", height: "136.78%", left: "-20.16%", top: "-18.26%" },
+    crop: {
+      width: "130.33%",
+      height: "136.78%",
+      left: "-20.16%",
+      top: "-18.26%",
+    },
   },
 ];
 
@@ -174,98 +197,196 @@ export const SITE_TYPES = [
   },
 ];
 
-export const STORE_PLATFORMS = [
-  { label: "متاجر word press", logo: "/assets/icons/wordpress.svg", logoWidth: 40, logoHeight: 40 },
-  { label: "متاجر Odoo", logo: "/assets/icons/odoo.svg", logoWidth: 44, logoHeight: 14 },
-  { label: "متاجر zoho", logo: "/assets/icons/zoho.svg", logoWidth: 50, logoHeight: 46 },
-  { label: "متاجر سلة", logo: "/assets/icons/salla.svg", logoWidth: 46, logoHeight: 46 },
-];
+type Rect = { left: string; top: string; width: string; height: string };
 
-export type WorkEntry = {
-  title: string;
-  titleWeight: "bold" | "semibold";
-  body: string;
-  image: string;
-  mediaHeight: number;
-  wideTitle?: boolean;
-  mediaWidth?: number;
-  mediaAspect?: string;
-  inner?: { width: string; height: string; left: string; top: string };
-  tags: string[];
+export type StorePlatform = {
+  label: string;
+  logo: string;
+  activeLogo: string;
+  logoWidth: number;
+  logoHeight: number;
+  /** Logo-side padding (the design gives Odoo 16px instead of 14px). */
+  padEnd: number;
+  padY: number;
+  /** Arrow artwork for this tab, indexed by the currently active tab. */
+  arrows: [string, string, string, string];
+  media: {
+    image: string;
+    alt: string;
+    frameWidth: number;
+    frameHeight: number;
+    rounded: boolean;
+    cardBg: boolean;
+    /** Image box inside the frame, as percentages of the frame. */
+    box: Rect;
+    /** Optional crop of the image inside its box. */
+    crop?: Rect;
+  };
 };
 
-export const WORK_RIGHT: WorkEntry[] = [
+const ARROW_A = "/assets/icons/arrow-left-46-white.svg";
+const ARROW_B = "/assets/icons/arrow-left-46-blue.svg";
+
+export const STORE_PLATFORMS: StorePlatform[] = [
   {
-    title: "حضور رقمي يعرّف بأعمالك بوضوح",
-    titleWeight: "semibold",
-    body: "مواقع احترافية تنظّم خدمات الشركة ومحتواها، وتعكس هويتها وتساعد الزائر على الوصول إلى المعلومة والتواصل بسهولة.",
-    image: "/assets/images/work-supercar.png",
-    mediaHeight: 323,
-    mediaAspect: "557/323",
-    inner: { width: "100%", height: "129.33%", left: "0%", top: "-12.5%" },
-    tags: ["مواقع شركات", "WordPress", "تصميم متجاوب"],
+    label: "متاجر word press",
+    logo: "/assets/icons/wordpress-blue.svg",
+    activeLogo: "/assets/icons/wordpress.svg",
+    logoWidth: 40,
+    logoHeight: 40,
+    padEnd: 14,
+    padY: 9,
+    arrows: [ARROW_A, ARROW_A, ARROW_A, ARROW_A],
+    media: {
+      image: "/assets/images/store-dashboard.png",
+      alt: "لوحة تحكم متجر WordPress",
+      frameWidth: 556,
+      frameHeight: 476,
+      rounded: true,
+      cardBg: false,
+      box: {
+        left: "-5.7554%",
+        top: "0%",
+        width: "113.8489%",
+        height: "99.7899%",
+      },
+    },
   },
   {
-    title: "حلول رقمية مبنية حول طريقة عملك",
-    titleWeight: "bold",
-    body: "منصات تتضمن حسابات مستخدمين، صلاحيات، لوحات تحكم، قواعد بيانات ووظائف مخصصة حسب احتياجات المشروع.",
-    image: "/assets/images/work-platform.png",
-    mediaHeight: 362,
-    mediaAspect: "557/362",
-    tags: ["التكاملات", "داش بورد", "Front-End", "Back-End"],
+    label: "متاجر Odoo",
+    logo: "/assets/icons/odoo.svg",
+    activeLogo: "/assets/icons/odoo-white.svg",
+    logoWidth: 44,
+    logoHeight: 14,
+    padEnd: 16,
+    padY: 9,
+    arrows: [
+      ARROW_B,
+      "/assets/icons/arrow-left-46-odoo.svg",
+      "/assets/icons/arrow-left-46-odoo.svg",
+      "/assets/icons/arrow-left-46-odoo.svg",
+    ],
+    media: {
+      image: "/assets/images/store-odoo.png",
+      alt: "لوحة تحكم متجر Odoo",
+      frameWidth: 556,
+      frameHeight: 476,
+      rounded: true,
+      cardBg: false,
+      box: {
+        left: "1.4388%",
+        top: "9.8739%",
+        width: "97.1223%",
+        height: "80.2521%",
+      },
+      crop: { left: "-4.31%", top: "-0.09%", width: "105.97%", height: "100%" },
+    },
+  },
+  {
+    label: "متاجر zoho",
+    logo: "/assets/icons/zoho.svg",
+    activeLogo: "/assets/icons/zoho.svg",
+    logoWidth: 50,
+    logoHeight: 46,
+    padEnd: 14,
+    padY: 9,
+    arrows: [
+      ARROW_B,
+      ARROW_B,
+      "/assets/icons/arrow-left-46-zoho.svg",
+      "/assets/icons/arrow-left-46-zoho.svg",
+    ],
+    media: {
+      image: "/assets/images/store-zoho.png",
+      alt: "لوحة تحكم متجر Zoho",
+      frameWidth: 556,
+      frameHeight: 370,
+      rounded: false,
+      cardBg: false,
+      box: { left: "0%", top: "0%", width: "100%", height: "100%" },
+    },
+  },
+  {
+    label: "متاجر سلة",
+    logo: "/assets/icons/salla.svg",
+    activeLogo: "/assets/icons/salla-light.svg",
+    logoWidth: 46,
+    logoHeight: 46,
+    padEnd: 14,
+    padY: 7,
+    arrows: [
+      ARROW_B,
+      ARROW_B,
+      ARROW_B,
+      "/assets/icons/arrow-left-46-salla.svg",
+    ],
+    media: {
+      image: "/assets/images/store-salla.png",
+      alt: "لوحة تحكم متجر سلة",
+      frameWidth: 556,
+      frameHeight: 476,
+      rounded: true,
+      cardBg: true,
+      box: {
+        left: "0%",
+        top: "3.9916%",
+        width: "108.6331%",
+        height: "84.8739%",
+      },
+      crop: { left: "-0.05%", top: "0%", width: "100.12%", height: "100%" },
+    },
   },
 ];
 
-export const WORK_LEFT: WorkEntry[] = [
-  {
-    title: "تجربة شراء أبسط وإدارة أكثر كفاءة",
-    titleWeight: "semibold",
-    wideTitle: true,
-    body: "متاجر إلكترونية تساعد العملاء على استكشاف المنتجات وإتمام الطلب بسهولة، مع إدارة مرنة للمنتجات والدفع والشحن.",
-    image: "/assets/images/work-diving.png",
-    mediaHeight: 393,
-    mediaAspect: "585/393",
-    inner: { width: "87.07%", height: "77.17%", left: "6.31%", top: "8.73%" },
-    tags: ["Odoo", "WooCommerce", "سلة", "Zoho"],
-  },
-  {
-    title: "رحلة واضحة من استكشاف الخدمة إلى الحجز",
-    titleWeight: "semibold",
-    body: "مواقع تنظّم الخدمات والباقات والمواعيد، وتسهّل على المستخدم المقارنة والتواصل أو إتمام الحجز.",
-    image: "/assets/images/work-booking.png",
-    mediaHeight: 339,
-    mediaWidth: 509,
-    mediaAspect: "509/339",
-    inner: { width: "100%", height: "100.1%", left: "0%", top: "-0.05%" },
-    tags: ["مسار الحجز", "نماذج ", "التكامل مع الواتساب"],
-  },
-];
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role?: string;
+  avatar: string;
+  /** Logos render contained at their own size; photos render as a round 43px avatar. */
+  avatarKind: "photo" | "logo";
+  avatarSize: number;
+  shadow: boolean;
+};
 
-export const TESTIMONIALS = [
+export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "و ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص",
-    name: "Jacob Jones",
-    role: "Digital Marketer",
+      "بصفتي مدربة أسرية معتمدة، كنت أسعى لتعزيز علامتي التجارية الشخصية والتواصل مع المزيد من العائلات التي تحتاج إلى التوجيه. كان العمل مع شركة FUEX Solutions بمثابة نقطة تحول بالنسبة لي. فقد أدى نهجهم الاستراتيجي في التسويق عبر وسائل التواصل الاجتماعي إلى نمو ملحوظ بنسبة 134.5% في عدد متابعي خلال ثلاثة أسابيع فقط",
+    name: "د/ ريم بخيت",
+    role: "مستشارة اجتماعية",
+    avatar: "/assets/images/testimonial-reem.png",
+    avatarKind: "photo",
+    avatarSize: 43,
     shadow: true,
   },
   {
     quote:
-      "و ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص",
-    name: "Jacob Jones",
-    role: "Digital Marketer",
-    shadow: true,
+      "يسعنا إلا أن نتقدم بجزيل الشكر لوكالتكم التسويقية على خدماتها المتميزة. لقد ساهمت أفكار فريقكم الإبداعية ونهجهم القائم على البيانات في تحقيق نتائج باهرة في فترة وجيزة. ارتفع تفاعل متابعينا على وسائل التواصل الاجتماعي بشكل ملحوظ، واكتسبت علامتنا التجارية قاعدة جماهيرية وفية.",
+    name: "يسرى بوغوس",
+    avatar: "/assets/images/testimonial-yb.png",
+    avatarKind: "logo",
+    avatarSize: 34,
+    shadow: false,
   },
   {
     quote:
-      "و ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص",
-    name: "Jacob Jones",
-    role: "Digital Marketer",
+      "لقد فاقت وكالة Fuex توقعاتي بخدماتها المتميزة فريقهم محترف، سريع الاستجابة، ويفهم تماما احتياجات عملائهم. لقد قدموا نتائج عالية الجودة في الوقت المحدد، وكان لإبداعهم وخبرتهم أثر بالغ. أوصي بشدة بوكالة Fuex لكل من يبحث عن حلول تسويقية من الطراز الأول",
+    name: "د/روزانا البخاري",
+    role: "عبر بيكسفورت.",
+    avatar: "/assets/images/testimonial-bixfort.png",
+    avatarKind: "logo",
+    avatarSize: 22,
     shadow: false,
   },
 ];
 
-export const FOOTER_LINKS = ["الرئسية ", "الخدمات", "اعمالنا", "تواصل معنا"];
+export const FOOTER_LINKS = [
+  { label: "الرئسية ", href: "/" },
+  // { label: "الخدمات", href: "/#services" },
+  { label: "اعمالنا", href: "/works" },
+  { label: "تواصل معنا", href: "#contact" },
+];
 
 export const FOOTER_SOCIALS = [
   { name: "twitter", icon: "/assets/icons/twitter.svg", href: "#" },

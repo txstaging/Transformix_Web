@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FOOTER_LINKS, FOOTER_SOCIALS } from "@/lib/content";
 
 const CONTACT_ROWS = [
@@ -9,15 +10,15 @@ const CONTACT_ROWS = [
 function LinksColumn() {
   return (
     <div className="flex w-full flex-col gap-[16px] text-right lg:w-[234px]">
-      <h3 className="font-tajawal text-[18px] font-bold leading-[1.6] text-white lg:h-[21px]">
+      <h3 className="font-tajawal text-[18px] font-bold leading-[1.6] text-white lg:flex lg:h-[21px] lg:flex-col lg:justify-center">
         الروابط سريعة
       </h3>
       <ul className="flex flex-col gap-[8px] font-tajawal text-[18px] font-normal leading-[1.6] text-white-normal opacity-90">
         {FOOTER_LINKS.map((link) => (
-          <li key={link} className="lg:h-[20px]">
-            <a href="#" className="transition-opacity duration-200 hover:opacity-70">
-              {link}
-            </a>
+          <li key={link.label} className="lg:flex lg:h-[20px] lg:flex-col lg:justify-center">
+            <Link href={link.href} className="transition-opacity duration-200 hover:opacity-70">
+              {link.label}
+            </Link>
           </li>
         ))}
       </ul>
@@ -28,21 +29,21 @@ function LinksColumn() {
 function ContactColumn() {
   return (
     <div className="flex w-full flex-col gap-[16px] text-right lg:w-[136px]">
-      <h3 className="font-tajawal text-[18px] font-bold leading-[1.6] text-white lg:h-[21px]">
+      <h3 className="font-tajawal text-[18px] font-bold leading-[1.6] text-white lg:flex lg:h-[21px] lg:flex-col lg:justify-center">
         تواصل معنا{" "}
       </h3>
-      <div className="flex flex-col gap-[13px] pb-[8px] pl-[8px]">
+      <div className="flex flex-col gap-[13px] pb-[8px] pl-[8px] lg:h-[55px] lg:justify-between lg:gap-0">
         {CONTACT_ROWS.map((row) => (
           <a
             key={row.label}
             href="#"
             aria-label={row.label}
-            className="flex items-center justify-end gap-[8px] transition-opacity duration-200 hover:opacity-70"
+            className="flex items-center justify-start gap-[8px] transition-opacity duration-200 hover:opacity-70 lg:h-[20px] lg:items-end"
           >
             <span className="relative block size-[20px] shrink-0">
               <Image src={row.icon} alt="" fill sizes="20px" />
             </span>
-            <span className="font-tajawal text-[18px] font-normal leading-[1.6] text-white-normal">
+            <span className="font-tajawal text-[18px] font-normal leading-[1.6] text-white-normal lg:flex lg:h-[14px] lg:w-[70px] lg:flex-col lg:justify-center">
               {row.value}
             </span>
           </a>
@@ -58,7 +59,7 @@ function SocialColumn() {
   return (
     <div className="flex w-full flex-col items-center gap-[16px] lg:w-[122px]">
       <div className="flex w-full flex-col lg:w-[88px]">
-        <h3 className="text-right font-tajawal text-[18px] font-bold leading-[1.6] text-white lg:h-[21px]">
+        <h3 className="text-right font-tajawal text-[18px] font-bold leading-[1.6] text-white lg:flex lg:h-[21px] lg:flex-col lg:justify-center">
           تابعنا على
         </h3>
       </div>
@@ -78,17 +79,45 @@ function SocialColumn() {
   );
 }
 
-export default function SiteFooter() {
+// Desktop positions per design canvas: the home page is drawn at 1454px,
+// the works page at 1440px.
+const LAYOUTS = {
+  home: {
+    canvas: "max-w-[1454px]",
+    columns: "left-[294.07px]",
+    logo: "left-[1213.6px] w-[134.55px]",
+    tagline: "left-[1159.93px]",
+    divider: "h-px bg-white/20",
+    copyright: "left-[664.07px]",
+  },
+  works: {
+    canvas: "max-w-[1440px]",
+    columns: "left-[292px]",
+    logo: "left-[1202px] w-[133.14px]",
+    tagline: "left-[1148px]",
+    divider: "-top-[0.5px] h-[0.5px] bg-white/11",
+    copyright: "left-[658px]",
+  },
+};
+
+type SiteFooterProps = {
+  variant?: keyof typeof LAYOUTS;
+  id?: string;
+};
+
+export default function SiteFooter({ variant = "home", id }: SiteFooterProps) {
+  const layout = LAYOUTS[variant];
+
   return (
-    <footer className="relative w-full overflow-hidden bg-navy">
-      <div className="relative mx-auto hidden h-[335px] w-full max-w-[1454px] lg:block">
-        <div className="absolute left-[294.07px] top-[78px] flex w-[762px] items-start gap-[135px]">
+    <footer id={id} className="relative w-full overflow-hidden bg-navy">
+      <div className={`relative mx-auto hidden h-[335px] w-full lg:block ${layout.canvas}`}>
+        <div className={`absolute top-[78px] flex w-[762px] items-start gap-[135px] ${layout.columns}`}>
           <LinksColumn />
           <ContactColumn />
           <SocialColumn />
         </div>
 
-        <div className="absolute left-[1213.6px] top-[71px] h-[85px] w-[134.55px]">
+        <div className={`absolute top-[71px] h-[85px] ${layout.logo}`}>
           <Image
             src="/assets/logo/logo-white.svg"
             alt="Transformix"
@@ -98,19 +127,21 @@ export default function SiteFooter() {
           />
         </div>
 
-        <p className="absolute left-[1159.93px] top-[192.5px] w-[187px] -translate-y-1/2 text-right font-tajawal text-[18px] font-normal leading-[1.6] text-white-normal">
+        <p className={`absolute top-[192.5px] w-[187px] -translate-y-1/2 text-right font-tajawal text-[18px] font-normal leading-[1.6] text-white-normal ${layout.tagline}`}>
           دليلك الذكي لنمو شركتك
         </p>
 
-        <div className="absolute left-[94px] top-[250px] h-px w-[1241px] bg-white/20" />
+        <div className="absolute left-[94px] top-[250px] w-[1241px]">
+          <div className={`relative w-full ${layout.divider}`} />
+        </div>
 
-        <p className="absolute left-[664.07px] top-[290px] w-[200px] -translate-y-1/2 text-right font-tajawal text-[14px] font-normal leading-[1.6] text-white">
+        <p className={`absolute top-[290px] w-[200px] -translate-y-1/2 text-right font-tajawal text-[14px] font-normal leading-[1.6] text-white ${layout.copyright}`}>
           جمع الحقوق محفوظة Transformix{" "}
         </p>
       </div>
 
       <div className="flex w-full flex-col gap-[32px] px-[20px] py-[40px] md:px-[40px] lg:hidden">
-        <div className="flex flex-col items-end gap-[12px]">
+        <div className="flex flex-col items-center gap-[12px]">
           <div className="relative h-[64px] w-[101px]">
             <Image
               src="/assets/logo/logo-white.svg"
@@ -120,7 +151,7 @@ export default function SiteFooter() {
               className="object-contain"
             />
           </div>
-          <p className="text-right font-tajawal text-[16px] font-normal leading-[1.6] text-white-normal">
+          <p className="text-center font-tajawal text-[16px] font-normal leading-[1.6] text-white-normal">
             دليلك الذكي لنمو شركتك
           </p>
         </div>

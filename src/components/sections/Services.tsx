@@ -78,7 +78,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="w-full bg-white px-[20px] py-[64px] md:px-[40px] lg:flex lg:flex-col lg:items-center lg:p-[100px]"
+      className="w-full bg-white px-[20px] py-[64px] md:px-[40px] lg:flex lg:flex-col lg:items-center lg:px-[100px] lg:pb-[24px] lg:pt-[100px]"
     >
       <div className="mx-auto flex w-full max-w-[1240px] flex-col gap-[40px] lg:w-[1240px] lg:gap-[54px]">
         <div className="flex w-full flex-col items-center">

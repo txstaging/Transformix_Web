@@ -1,11 +1,26 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import OutlineButton from "@/components/ui/OutlineButton";
 import { NAV_LINKS } from "@/lib/content";
 
-export default function SiteHeader() {
+type NavLink = (typeof NAV_LINKS)[number];
+
+type SiteHeaderProps = {
+  links?: NavLink[];
+  /** Desktop width/inset of the bar; defaults to the home canvas. */
+  containerClassName?: string;
+  /** Desktop offset of the logo relative to its slot. */
+  logoClassName?: string;
+};
+
+export default function SiteHeader({
+  links = NAV_LINKS,
+  containerClassName = "max-w-[1454px] lg:px-[120px]",
+  logoClassName = "lg:translate-x-[35.16px]",
+}: SiteHeaderProps) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -17,8 +32,10 @@ export default function SiteHeader() {
 
   return (
     <header className="relative z-30 w-full">
-      <div className="mx-auto flex h-[72px] w-full max-w-[1454px] items-center justify-between px-[20px] md:px-[40px] lg:h-[102px] lg:px-[120px]">
-        <a href="#" className="relative block shrink-0 lg:translate-x-[35.16px]">
+      <div
+        className={`mx-auto flex h-[72px] w-full items-center justify-between px-[20px] md:px-[40px] lg:h-[102px] ${containerClassName}`}
+      >
+        <Link href="/" className={`relative block shrink-0 ${logoClassName}`}>
           <Image
             src="/assets/logo/logo.svg"
             alt="Transformix"
@@ -27,11 +44,11 @@ export default function SiteHeader() {
             priority
             className="h-[38px] w-auto lg:h-[54.355px] lg:w-[85.14px]"
           />
-        </a>
+        </Link>
 
         <nav className="hidden lg:flex lg:w-[672px] lg:flex-col lg:items-center">
           <ul className="flex items-center justify-center">
-            {NAV_LINKS.map((link) => (
+            {links.map((link) => (
               <li
                 key={link.label}
                 className={
@@ -40,7 +57,7 @@ export default function SiteHeader() {
                     : "flex flex-col items-start pb-[21px] pl-[16px] pr-[8px] pt-[20.5px]"
                 }
               >
-                <a
+                <Link
                   href={link.href}
                   className="group flex items-center justify-center gap-[4px] text-[18px] leading-normal text-text-primary transition-colors duration-200 hover:text-primary"
                 >
@@ -53,14 +70,14 @@ export default function SiteHeader() {
                   </span>
                   {link.hasChevron && (
                     <Image
-                      src="/assets/icons/chevron-down.svg"
+                      src="/assets/icons/chevron-down-16.svg"
                       alt=""
-                      width={9.6}
-                      height={5.0667}
-                      className="block h-[5.0667px] w-[9.6px] transition-transform duration-200 group-hover:translate-y-[2px]"
+                      width={16}
+                      height={16}
+                      className="block size-[16px] transition-transform duration-200 group-hover:translate-y-[2px]"
                     />
                   )}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -103,9 +120,9 @@ export default function SiteHeader() {
         }`}
       >
         <ul className="flex flex-col px-[20px] py-[12px] md:px-[40px]">
-          {NAV_LINKS.map((link) => (
+          {links.map((link) => (
             <li key={link.label} className="border-b border-stroke/70 last:border-b-0">
-              <a
+              <Link
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className={`flex items-center justify-between py-[14px] text-[16px] text-text-primary ${
@@ -115,14 +132,14 @@ export default function SiteHeader() {
                 {link.label}
                 {link.hasChevron && (
                   <Image
-                    src="/assets/icons/chevron-down.svg"
+                    src="/assets/icons/chevron-down-16.svg"
                     alt=""
-                    width={9.6}
-                    height={5.0667}
-                    className="block h-[5.0667px] w-[9.6px]"
+                    width={16}
+                    height={16}
+                    className="block size-[16px]"
                   />
                 )}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
